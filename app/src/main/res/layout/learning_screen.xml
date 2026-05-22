@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:id="@+id/main1"
+    android:background="#F5F5F5">
+
+    <!-- Верхняя панель: Кнопка назад и счетчик -->
+
+    <ImageView android:id="@+id/closeBtn"
+        android:layout_width="58dp"
+        android:layout_height="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/close_24dp_e3e3e3_fill0_wght400_grad0_opsz24"
+        app:tint="@color/black"
+        android:onClick="clickClose"/>
+
+    <TextView android:id="@+id/tv_learn_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginEnd="112dp" android:text="Изучение слов" android:textColor="#333333" android:textSize="20sp" android:textStyle="bold" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0" app:layout_constraintStart_toEndOf="@+id/closeBtn" app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView android:id="@+id/tv_word_counter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Слово: 1 из 10" android:textSize="14sp" android:textColor="#777777" app:layout_constraintTop_toBottomOf="@id/tv_learn_title" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Центральная карточка со словом -->
+
+    <!-- Подсказка для пользователя -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_word"
+        android:layout_width="380dp"
+        android:layout_height="444dp"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_next_word"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_word_counter"
+        app:layout_constraintVertical_bias="0.048">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/image_word"
+                        android:layout_width="313dp"
+                        android:layout_height="232dp"
+                        android:layout_marginBottom="20dp"
+                        android:src="@drawable/image_asset" />
+
+                    <!-- Иностранное слово -->
+                    <TextView android:id="@+id/tv_learn_foreign" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center" android:text="Apple" android:textColor="#1E88E5" android:textSize="36sp" android:textStyle="bold"/>
+
+                    <!-- Разделительная линия -->
+                    <View android:layout_width="150dp" android:layout_height="1dp" android:layout_marginTop="20dp" android:layout_marginBottom="20dp" android:background="#DDDDDD"/>
+
+                    <!-- Перевод слова -->
+                    <TextView android:id="@+id/tv_learn_translation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center" android:text="Яблоко" android:textColor="#555555" android:textSize="26sp"/>
+
+                </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15dp" android:text="Постарайтесь запомнить это слово" android:textSize="14sp" android:textColor="#999999" app:layout_constraintTop_toBottomOf="@id/card_word" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Кнопка "Далее" -->
+    <Button android:id="@+id/btn_next_word" android:layout_width="match_parent" android:layout_height="65dp" android:text="Далее" android:textAllCaps="false" android:textSize="18sp" android:layout_marginBottom="20dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
